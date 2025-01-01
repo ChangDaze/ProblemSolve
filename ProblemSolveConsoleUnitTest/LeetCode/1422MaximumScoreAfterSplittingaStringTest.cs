@@ -5,13 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProblemSolveConsoleUnitTest
+namespace ProblemSolveConsoleUnitTest.LeetCode
 {
     public class _1422MaximumScoreAfterSplittingaStringTest
     {
         private _1422MaximumScoreAfterSplittingaString _1422MaximumScoreAfterSplittingaString;
 
-        public _1422MaximumScoreAfterSplittingaStringTest() { 
+        public _1422MaximumScoreAfterSplittingaStringTest()
+        {
             _1422MaximumScoreAfterSplittingaString = new _1422MaximumScoreAfterSplittingaString();
         }
         [Fact]

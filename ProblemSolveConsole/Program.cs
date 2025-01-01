@@ -1,4 +1,5 @@
-﻿using ProblemSolveConsole.LeetCode;
+﻿using ProblemSolveConsole.AdventofCode;
+using ProblemSolveConsole.LeetCode;
 
 namespace ProblemSolveConsole
 {
@@ -6,6 +7,7 @@ namespace ProblemSolveConsole
     {
         static void Main(string[] args)
         {
+            new _2024D1().Execute();
             Console.WriteLine("Hello, World!");
         }
     }
