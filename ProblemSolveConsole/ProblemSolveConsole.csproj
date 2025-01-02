@@ -8,11 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="AdventofCode\Input\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="AdventofCode\Input\2024Q1_1.txt">
+    <None Update="AdventofCode\Input\2024Q1.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

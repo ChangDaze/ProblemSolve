@@ -1,6 +1,7 @@
 ﻿using ProblemSolveConsole.Interface;
 using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -14,13 +15,14 @@ namespace ProblemSolveConsole.AdventofCode
     {
         public void Execute()
         {
-            using (StreamReader sr = new StreamReader("AdventofCode/Input/2024Q1_1.txt"))
+            using (StreamReader sr = new StreamReader("AdventofCode/Input/2024Q1.txt"))
             {
                 string data = sr.ReadToEnd();
-                Console.WriteLine(GetTotalDistance1(data));
+                //Console.WriteLine(GetTotalDistance(data));
+                Console.WriteLine(GetSimilarityScore(data));
             }                            
         }        
-        public double GetTotalDistance1(string input)
+        public double GetTotalDistance(string input)
         {
             Regex regex = new Regex(@"-?\d+(\.\d+)?");
             MatchCollection matches = regex.Matches(input);
@@ -42,9 +44,47 @@ namespace ProblemSolveConsole.AdventofCode
             rightLst.Sort();
 
             double sum = 0;
-            for(int j = 0; j < leftLst.Count && j < rightLst.Count ; j++)
+            for(int j = 0; j < leftLst.Count; j++) //照理來講程式能執行到這leftLst、rightLst會一樣長
             {
                 sum += Math.Abs(leftLst[j] - rightLst[j]);
+            }
+
+            return sum;
+        }
+        public long GetSimilarityScore(string input)
+        {
+            Regex regex = new Regex(@"-?\d+(\.\d+)?");
+            MatchCollection matches = regex.Matches(input);
+
+            int i = 0;
+            List<int> leftLst = new List<int>();
+            List<int> rightLst = new List<int>();
+            while (i < matches.Count)
+            {
+                int.TryParse(matches[i].Value, out int number);
+                if (i % 2 == 0)
+                    leftLst.Add(number);
+                else
+                    rightLst.Add(number);
+                i++;
+            }
+            //statistics the right list
+            Dictionary<int, int> rightDic = new Dictionary<int, int>();
+            for (int j = 0; j < rightLst.Count; j++)
+            {
+                if (rightDic.ContainsKey(rightLst[j]))
+                    rightDic[rightLst[j]]++;
+                else
+                    rightDic[rightLst[j]] = 1;
+            }
+            //iterate the left list to calculate the sum score
+            long sum = 0;
+            for (int k = 0; k < leftLst.Count; k++)
+            {
+                if (rightDic.ContainsKey(leftLst[k]))
+                {
+                    sum += leftLst[k] * rightDic[leftLst[k]];
+                }                    
             }
 
             return sum;

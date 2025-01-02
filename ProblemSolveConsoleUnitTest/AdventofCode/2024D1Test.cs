@@ -19,13 +19,24 @@ namespace ProblemSolveConsoleUnitTest.AdventofCode
         [Fact]
         public void TestQ1_1()
         {
-            var result = _2024D1.GetTotalDistance1(@"3   4
+            var result = _2024D1.GetTotalDistance(@"3   4
 4   3
 2   5
 1   3
 3   9
 3   3");
             Assert.Equal(11, result);
+        }
+        [Fact]
+        public void TestQ1_2()
+        {
+            var result = _2024D1.GetSimilarityScore(@"3   4
+4   3
+2   5
+1   3
+3   9
+3   3");
+            Assert.Equal(31, result);
         }
     }
 }
