@@ -15,7 +15,7 @@ namespace ProblemSolveConsole.AdventofCode
     {
         public void Execute()
         {
-            using (StreamReader sr = new StreamReader("AdventofCode/Input/2024Q1.txt"))
+            using (StreamReader sr = new StreamReader("AdventofCode/Input/2024D1.txt"))
             {
                 string data = sr.ReadToEnd();
                 //Console.WriteLine(GetTotalDistance(data));
