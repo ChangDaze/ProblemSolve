@@ -13,7 +13,6 @@ namespace ProblemSolveConsole.AdventofCode
     {
         public void Execute()
         {
-            char[][] data = null;
             using (StreamReader sr = new StreamReader("C:/Repo/C#/ProblemSolve/ProblemSolveConsole/AdventofCode/Input/2024D4.txt"))
             {                
                 string input = sr.ReadToEnd();
