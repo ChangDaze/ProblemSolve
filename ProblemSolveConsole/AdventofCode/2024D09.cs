@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace ProblemSolveConsole.AdventofCode
 {
-    public class _2024D9 : ISolution
+    public class _2024D09 : ISolution
     {
         public void Execute()
         {
-            using (StreamReader sr = new StreamReader("C:/Repo/C#/ProblemSolve/ProblemSolveConsole/AdventofCode/Input/2024D9.txt"))
+            using (StreamReader sr = new StreamReader("C:/Repo/C#/ProblemSolve/ProblemSolveConsole/AdventofCode/Input/2024D09.txt"))
             {
                 string input = sr.ReadToEnd();
                 Console.WriteLine(GetChecksum(input));

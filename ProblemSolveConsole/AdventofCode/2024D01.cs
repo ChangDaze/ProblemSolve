@@ -11,14 +11,14 @@ using System.Threading.Tasks;
 namespace ProblemSolveConsole.AdventofCode
 {
     //https://adventofcode.com/2024/day/1
-    public class _2024D1 : ISolution
+    public class _2024D01 : ISolution
     {
         public void Execute()
         {
-            using (StreamReader sr = new StreamReader("AdventofCode/Input/2024D1.txt"))
+            using (StreamReader sr = new StreamReader("C:/Repo/C#/ProblemSolve/ProblemSolveConsole/AdventofCode/Input/2024D01.txt"))
             {
                 string data = sr.ReadToEnd();
-                //Console.WriteLine(GetTotalDistance(data));
+                Console.WriteLine(GetTotalDistance(data));
                 Console.WriteLine(GetSimilarityScore(data));
             }                            
         }        
