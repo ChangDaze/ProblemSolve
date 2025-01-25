@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace ProblemSolveConsole.AdventofCode
 {
     //https://adventofcode.com/2024/day/3
-    public class _2024D3 : ISolution
+    public class _2024D03 : ISolution
     {
         public void Execute()
         {
