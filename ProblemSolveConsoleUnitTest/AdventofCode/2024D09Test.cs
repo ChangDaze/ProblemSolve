@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace ProblemSolveConsoleUnitTest.AdventofCode
 {
-    public class _2024D9Test
+    public class _2024D09Test
     {
-        private _2024D9 _2024D9;
-        public _2024D9Test()
+        private _2024D09 _2024D9;
+        public _2024D09Test()
         {
-            _2024D9 = new _2024D9();
+            _2024D9 = new _2024D09();
         }
         [Fact]
         public void GetChecksumTest()

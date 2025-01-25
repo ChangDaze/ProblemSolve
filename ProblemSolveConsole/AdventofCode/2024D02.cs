@@ -10,11 +10,11 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 namespace ProblemSolveConsole.AdventofCode
 {
     //https://adventofcode.com/2024/day/2
-    public class _2024D2 : ISolution
+    public class _2024D02 : ISolution
     {
         public void Execute()
         {
-            using (StreamReader sr = new StreamReader("C:/Repo/C#/ProblemSolve/ProblemSolveConsole/AdventofCode/Input/2024D2.txt"))
+            using (StreamReader sr = new StreamReader("C:/Repo/C#/ProblemSolve/ProblemSolveConsole/AdventofCode/Input/2024D02.txt"))
             {
                 string data = sr.ReadToEnd();
                 Console.WriteLine(GetSafeReports(data));
@@ -169,7 +169,7 @@ namespace ProblemSolveConsole.AdventofCode
                 {
                     if (!currentPosition.checkFail)
                     {
-                        Console.WriteLine($"{line} {number}");
+                        //Console.WriteLine($"{line} {number}");
                         safeReports++;
                     }
                     currentPosition.LineStartReset();
@@ -366,7 +366,7 @@ namespace ProblemSolveConsole.AdventofCode
 
                 if (isSomewhatSafe(intLst))
                 {
-                    Console.WriteLine($"{i+1} {intLst[intLst.Count - 1]} ");
+                    //Console.WriteLine($"{i+1} {intLst[intLst.Count - 1]} ");
                     totalSafe += 1;
                 }                    
             }

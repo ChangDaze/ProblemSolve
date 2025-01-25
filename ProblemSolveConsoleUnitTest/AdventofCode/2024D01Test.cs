@@ -8,18 +8,18 @@ using System.Threading.Tasks;
 
 namespace ProblemSolveConsoleUnitTest.AdventofCode
 {
-    public class _2024D1Test
+    public class _2024D01Test
     {
-        private _2024D1 _2024D1;
+        private _2024D01 _2024D01;
 
-        public _2024D1Test()
+        public _2024D01Test()
         {
-            _2024D1 = new _2024D1();
+            _2024D01 = new _2024D01();
         }
         [Fact]
-        public void TestQ1_1()
+        public void GetTotalDistanceTest()
         {
-            var result = _2024D1.GetTotalDistance(@"3   4
+            var result = _2024D01.GetTotalDistance(@"3   4
 4   3
 2   5
 1   3
@@ -28,9 +28,9 @@ namespace ProblemSolveConsoleUnitTest.AdventofCode
             Assert.Equal(11, result);
         }
         [Fact]
-        public void TestQ1_2()
+        public void GetSimilarityScoreTest()
         {
-            var result = _2024D1.GetSimilarityScore(@"3   4
+            var result = _2024D01.GetSimilarityScore(@"3   4
 4   3
 2   5
 1   3
