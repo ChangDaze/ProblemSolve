@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace ProblemSolveConsole.AdventofCode
 {
-    public class _2024D5 : ISolution
+    public class _2024D05 : ISolution
     {
         public void Execute()
         {
-            using (StreamReader sr = new StreamReader("C:/Repo/C#/ProblemSolve/ProblemSolveConsole/AdventofCode/Input/2024D5.txt"))
+            using (StreamReader sr = new StreamReader("C:/Repo/C#/ProblemSolve/ProblemSolveConsole/AdventofCode/Input/2024D05.txt"))
             {
                 string input = sr.ReadToEnd();
                 Console.WriteLine(GetOrderSum(input));

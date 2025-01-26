@@ -7,17 +7,17 @@ using System.Threading.Tasks;
 
 namespace ProblemSolveConsoleUnitTest.AdventofCode
 {
-    public class _2024D6Test
+    public class _2024D06Test
     {
-        private _2024D6 _2024D6;
-        public _2024D6Test()
+        private _2024D06 _2024D06;
+        public _2024D06Test()
         {
-            _2024D6 = new _2024D6();
+            _2024D06 = new _2024D06();
         }
         [Fact]
         public void GetOrderSumTest()
         {
-            var result = _2024D6.GetVisitSum(@"....#.....
+            var result = _2024D06.GetVisitSum(@"....#.....
 .........#
 ..........
 ..#.......
@@ -32,7 +32,7 @@ namespace ProblemSolveConsoleUnitTest.AdventofCode
         [Fact]
         public void GetLoopSumTest()
         {
-            var result = _2024D6.GetLoopSum(@"....#.....
+            var result = _2024D06.GetLoopSum(@"....#.....
 .........#
 ..........
 ..#.......

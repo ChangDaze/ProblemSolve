@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace ProblemSolveConsole.AdventofCode
 {
-    public class _2024D6 : ISolution
+    public class _2024D06 : ISolution
     {
         public void Execute()
         {
-            using (StreamReader sr = new StreamReader("C:/Repo/C#/ProblemSolve/ProblemSolveConsole/AdventofCode/Input/2024D6.txt"))
+            using (StreamReader sr = new StreamReader("C:/Repo/C#/ProblemSolve/ProblemSolveConsole/AdventofCode/Input/2024D06.txt"))
             {
                 string input = sr.ReadToEnd();
                 Console.WriteLine(GetVisitSum(input));

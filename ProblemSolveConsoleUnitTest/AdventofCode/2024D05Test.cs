@@ -7,17 +7,17 @@ using System.Threading.Tasks;
 
 namespace ProblemSolveConsoleUnitTest.AdventofCode
 {
-    public class _2024D5Test
+    public class _2024D05Test
     {
-        private _2024D5 _2024D5;
-        public _2024D5Test()
+        private _2024D05 _2024D05;
+        public _2024D05Test()
         {
-            _2024D5 = new _2024D5();
+            _2024D05 = new _2024D05();
         }
         [Fact]
         public void GetOrderSumTest()
         {
-            var result = _2024D5.GetOrderSum(@"47|53
+            var result = _2024D05.GetOrderSum(@"47|53
 97|13
 97|61
 97|47
@@ -50,7 +50,7 @@ namespace ProblemSolveConsoleUnitTest.AdventofCode
         [Fact]
         public void GetUnorderSummTest()
         {
-            var result = _2024D5.GetUnorderSum(@"47|53
+            var result = _2024D05.GetUnorderSum(@"47|53
 97|13
 97|61
 97|47

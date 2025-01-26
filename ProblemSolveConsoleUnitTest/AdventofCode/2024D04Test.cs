@@ -7,17 +7,17 @@ using System.Threading.Tasks;
 
 namespace ProblemSolveConsoleUnitTest.AdventofCode
 {
-    public class _2024D4Test
+    public class _2024D04Test
     {
-        private _2024D4 _2024D4;
-        public _2024D4Test()
+        private _2024D04 _2024D04;
+        public _2024D04Test()
         {
-            _2024D4 = new _2024D4();
+            _2024D04 = new _2024D04();
         }
         [Fact]
         public void GetXMASTest()
         {
-            var result = _2024D4.GetXMAS(@"MMMSXXMASM
+            var result = _2024D04.GetXMAS(@"MMMSXXMASM
 MSAMXMSMSA
 AMXSXMAAMM
 MSAMASMSMX
@@ -32,7 +32,7 @@ MXMXAXMASX");
         [Fact]
         public void GetX_MASTest()
         {
-            var result = _2024D4.GetX_MAS(@"MMMSXXMASM
+            var result = _2024D04.GetX_MAS(@"MMMSXXMASM
 MSAMXMSMSA
 AMXSXMAAMM
 MSAMASMSMX

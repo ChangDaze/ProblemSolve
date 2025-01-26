@@ -9,11 +9,11 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ProblemSolveConsole.AdventofCode
 {
-    public class _2024D4 : ISolution
+    public class _2024D04 : ISolution
     {
         public void Execute()
         {
-            using (StreamReader sr = new StreamReader("C:/Repo/C#/ProblemSolve/ProblemSolveConsole/AdventofCode/Input/2024D4.txt"))
+            using (StreamReader sr = new StreamReader("C:/Repo/C#/ProblemSolve/ProblemSolveConsole/AdventofCode/Input/2024D04.txt"))
             {                
                 string input = sr.ReadToEnd();
                 Console.WriteLine(GetXMAS(input));
