@@ -7,17 +7,17 @@ using System.Threading.Tasks;
 
 namespace ProblemSolveConsoleUnitTest.AdventofCode
 {
-    public class _2024D7Test
+    public class _2024D07Test
     {
-        private _2024D7 _2024D7;
-        public _2024D7Test()
+        private _2024D07 _2024D07;
+        public _2024D07Test()
         {
-            _2024D7 = new _2024D7();
+            _2024D07 = new _2024D07();
         }
         [Fact]
         public void GetValidSumTest()
         {
-            var result = _2024D7.GetValidSum(@"190: 10 19
+            var result = _2024D07.GetValidSum(@"190: 10 19
 3267: 81 40 27
 83: 17 5
 156: 15 6
@@ -31,7 +31,7 @@ namespace ProblemSolveConsoleUnitTest.AdventofCode
         [Fact]
         public void GetValidSum2Test()
         {
-            var result = _2024D7.GetValidSum2(@"190: 10 19
+            var result = _2024D07.GetValidSum2(@"190: 10 19
 3267: 81 40 27
 83: 17 5
 156: 15 6

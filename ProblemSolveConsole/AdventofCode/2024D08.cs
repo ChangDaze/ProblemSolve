@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace ProblemSolveConsole.AdventofCode
 {
-    public class _2024D8 : ISolution
+    public class _2024D08 : ISolution
     {
         public void Execute()
         {
-            using (StreamReader sr = new StreamReader("C:/Repo/C#/ProblemSolve/ProblemSolveConsole/AdventofCode/Input/2024D8.txt"))
+            using (StreamReader sr = new StreamReader("C:/Repo/C#/ProblemSolve/ProblemSolveConsole/AdventofCode/Input/2024D08.txt"))
             {
                 string input = sr.ReadToEnd();
                 Console.WriteLine(GetAntinodeSum(input));

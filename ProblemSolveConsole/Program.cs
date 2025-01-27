@@ -7,7 +7,7 @@ namespace ProblemSolveConsole
     {
         static void Main(string[] args)
         {
-            new _2024D13().Execute();
+            new _2024D14().Execute();
             Console.WriteLine("Hello, World!");
         }
     }

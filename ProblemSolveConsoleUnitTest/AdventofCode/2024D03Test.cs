@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace ProblemSolveConsoleUnitTest.AdventofCode
 {
-    public class _2024D3Test
+    public class _2024D03Test
     {
         private _2024D03 _2024D03;
-        public _2024D3Test()
+        public _2024D03Test()
         {
             _2024D03 = new _2024D03();
         }
