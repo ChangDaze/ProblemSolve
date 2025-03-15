@@ -7,6 +7,17 @@ namespace ProblemSolveConsole
     {
         static void Main(string[] args)
         {
+            int a = 11;
+            int b = 22;
+
+            while (b != 0)
+            {
+                int temp = b;
+                b = a % b;
+                a = temp;
+            }
+
+
             new _2024D15().Execute();
             Console.WriteLine("Hello, World!");
         }
