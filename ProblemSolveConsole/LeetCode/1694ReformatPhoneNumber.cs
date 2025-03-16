@@ -100,7 +100,7 @@ namespace ProblemSolveConsole.LeetCode
         //下面這幾位對於題目的2、3、4分組禮節都比我好，我只有呆呆用switch case，還用了一堆變數存讓問題變得很複雜，應該也可以先思考看看2、3、4的關聯 => 只會發生(最終處理上也是)剩4個和非剩4個的情況，每次3個一組一定會達成前述結果
         //regex語法，但會反覆檢查，不過應該也不會太慢，他排除剩4個digit的方法是確認後面的字串至少兩個digit才去做group形成
         //https://leetcode.com/problems/reformat-phone-number/solutions/979806/1-liner-python-java-c/
-        //這蠻有趣直接的，用queue size來控制，然後執行時都是一次執行3個，不過是2N，然後寫死的量也跟我差不多，但他的程式碼會比我乾淨不少
+        //這蠻有趣直接的，用queue size來控制，然後只要size>4執行時都是一次執行3個，不過是2N，然後寫死的量也跟我差不多，但他的程式碼會比我乾淨不少
         //https://leetcode.com/problems/reformat-phone-number/solutions/978606/java-queue-o-n-easy-to-understand/
         //這是用recursive，效率就像說明所說
         //https://leetcode.com/problems/reformat-phone-number/solutions/978728/c-functional-short/
