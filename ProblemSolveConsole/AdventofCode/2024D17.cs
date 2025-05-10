@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 using static ProblemSolveConsole.AdventofCode._2024D16;
@@ -23,6 +24,7 @@ namespace ProblemSolveConsole.AdventofCode
             {
                 string input = sr.ReadToEnd();
                 Console.WriteLine(GetProgramOutput(input));
+                Console.WriteLine(GetSameOutputRegisterA(input));
             }
         }
 
@@ -43,6 +45,7 @@ namespace ProblemSolveConsole.AdventofCode
         //bdv(opcode 6) registerA / ((2^x)); registerB = floor(result)
         //cdv(opcode 7) registerA / ((2^x)); registerC = floor(result)
 
+        #region
         //0,1,5,4,3,0
         //(0,1) A: 729 B: 0 C: 0
         //729 / 2 = 364 = A
@@ -63,6 +66,7 @@ namespace ProblemSolveConsole.AdventofCode
         //(3,0) A: 91 B: 0 C: 0
         //jump to 0
         //...
+        # endregion
 
         public string GetProgramOutput(string input)
         {
@@ -119,6 +123,14 @@ namespace ProblemSolveConsole.AdventofCode
         }
         public class Computer
         {
+            //2,4,
+            //1,2,
+            //7,5,
+            //4,5,
+            //0,3,
+            //1,7,
+            //5,5,
+            //3,0
             private int _registerA;
             private int _registerB;
             private int _registerC;
@@ -137,7 +149,6 @@ namespace ProblemSolveConsole.AdventofCode
                 _output = new StringBuilder();
                 runnable = true;
             }
-
             public string Run()
             {
                 if (!runnable)
@@ -194,7 +205,7 @@ namespace ProblemSolveConsole.AdventofCode
                     case 3:
                         if( _registerA != 0)
                         {
-                            _pointer = operand - 2;                            
+                            _pointer = operand - 2;//因為出去的迴圈pointer會+2，所以這裡再出去前先-2                            
                         }
                         return;
                     case 4:
@@ -215,6 +226,148 @@ namespace ProblemSolveConsole.AdventofCode
                 }
             }
         }
+        public long GetSameOutputRegisterA(string input)
+        {
+            Tuple<int, int, int, string> data = GetData(input);
+            Computer2 computer = new Computer2();
+            computer.SetProgram(data.Item4);
+            long result = computer.Run();
+            return result;
+        }
+        public class Computer2()
+        {
+            //3個假設
+            //(1)最後只有和必定是3,0來讓loop達成
+            //(2)必定有類似5,5來輸出結果
+            //(3)在解的時候0,3是唯一編輯A的部分，搭配2,4 | 7,5一定會讓B | C 變A的下游，最終5,5一定是A計算出的結果
+            //(4)0,3是A/8無條件捨去的過程，或者說A右移 3 位的過程 (右移操作會自動丟掉右邊的位元，相當於無條件捨去（floor）)
+            // 非負整數 x // 8   ≡   x >> 3
 
+            //因為A最終=0，所以逆推就是每次找被右移掉的3bit的值，這3bit會是0~7 (8的餘數)
+            //逆推就是 A << 3 (先左移讓出3bit) | t (因為是000，用OR補上0~7某一數字)，然後試試此輪B是否符合
+
+            //2,4, b from a
+            //1,2, b from b
+            //7,5, c from a
+            //4,5, b from c
+            //0,3, * a 此輪不再影響b、c， a << 3
+            //1,7, b from b
+            //5,5, output b
+            //3,0  loop
+
+            //目的是計算出原本的A                        
+            private int[] _program;
+            private long _answer;
+            public void SetProgram(string program)
+            {
+                _program = program.Split(',').Select(x => Convert.ToInt32(x)).ToArray();
+            }
+            public long Run()
+            {
+                _answer = -1;
+                RecursiveProgram(_program.Length - 1, 0);
+                return _answer;
+            }           
+            private bool RecursiveProgram(int recursivePointer, long currentRegisterA)
+            {
+                if(recursivePointer < 0)
+                {
+                    _answer = currentRegisterA;
+                    return true;
+                }
+
+                for(int i = 0; i < 8; i++)
+                {
+                    long registerA = 0;
+                    long registerB = 0;
+                    long registerC = 0;
+                    long output = -1; //初始化output避免誤導
+                    long tempCurrentRegisterA = currentRegisterA << 3 | i; //設定每輪起始registerA
+                    registerA = tempCurrentRegisterA;
+
+                    for (int pointer = 0; pointer < _program.Length; pointer = pointer + 2)
+                    {
+                        OperateByCode(
+                            ref output,
+                            ref registerA,
+                            ref registerB,
+                            ref registerC,
+                            _program[pointer],
+                            _program[pointer + 1],
+                            GetOperandValue(
+                                registerA,
+                                registerB,
+                                registerC,
+                                _program[pointer + 1]));
+                    }
+
+                    if (output == _program[recursivePointer])
+                    {
+                        if(RecursiveProgram(recursivePointer - 1, tempCurrentRegisterA))
+                        {
+                            return true;
+                        }
+                    }
+                }
+
+                return false;
+            }
+            private long GetOperandValue(long registerA, long registerB, long registerC, int operand)
+            {
+                switch (operand)
+                {
+                    case 0:
+                    case 1:
+                    case 2:
+                    case 3:
+                        return operand;
+                    case 4:
+                        return registerA;
+                    case 5:
+                        return registerB;
+                    case 6:
+                        return registerC;
+                    case 7:
+                        //throw new Exception("reserved and will not appear in valid programs");
+                        return operand;
+                    default:
+                        throw new Exception("exception operand");
+                }
+            }
+            /// <param name="opcode">動作</param>
+            /// <param name="operand">代表值</param>
+            /// <param name="operandValue">實際值</param>
+            private void OperateByCode(ref long output,ref long registerA, ref long registerB, ref long registerC, int opcode, int operand, long operandValue)
+            {
+                switch (opcode)
+                {
+                    case 0:
+                        registerA = (long)Math.Truncate(registerA / (decimal)Math.Pow(2, operandValue));
+                        break;
+                    case 1:
+                        registerB = registerB ^ operand;
+                        break;
+                    case 2:
+                        registerB = operandValue % 8;
+                        break;
+                    case 3: //目前無用 因為預設為 3,0了
+                        break;
+                    case 4:
+                        registerB = registerB ^ registerC;
+                        break;
+                    case 5: //要核對的結論
+                        output = operandValue % 8;
+                        break;
+                    case 6:
+                        registerB = (long)Math.Truncate(registerA / (decimal)Math.Pow(2, operandValue));
+                        break;
+                    case 7:
+                        registerC = (long)Math.Truncate(registerA / (decimal)Math.Pow(2, operandValue));
+                        break;
+                    default:
+                        throw new Exception("exception opcode");
+                }
+            }
+        }
     }
 }

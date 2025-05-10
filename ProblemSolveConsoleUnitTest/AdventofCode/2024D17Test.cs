@@ -24,5 +24,45 @@ Register C: 0
 Program: 0,1,5,4,3,0");
             Assert.Equal("4,6,3,5,6,3,5,2,1,0", result);
         }
+        [Fact]
+        public void GetProgramOutputTest2()
+        {
+            var result = _2024D17.GetProgramOutput(@"Register A: 117440
+Register B: 0
+Register C: 0
+
+Program: 0,3,5,4,3,0");
+            Assert.Equal("0,3,5,4,3,0", result);
+        }        
+        [Fact]
+        public void GetSameOutputRegisterATest()
+        {
+            var result = _2024D17.GetSameOutputRegisterA(@"Register A: 117440
+Register B: 0
+Register C: 0
+
+Program: 0,3,5,4,3,0");
+            Assert.Equal(117440, result);
+        }
+        [Fact]
+        public void GetProgramOutputTest3()
+        {
+            var result = _2024D17.GetProgramOutput(@"Register A: 1599941391
+Register B: 0
+Register C: 0
+
+Program: 2,4,1,2,7,5,4,5,0,3,1,7,5,5,3,0");
+            Assert.Equal("2,4,1,2,7,5,4,5,0,3,1,7,5,5,3,0", result);
+        }
+        [Fact]
+        public void GetProgramOutputTest4() //因為溢位不能跑
+        {
+            var result = _2024D17.GetProgramOutput(@"Register A: 190384615275535
+Register B: 0
+Register C: 0
+
+Program: 2,4,1,2,7,5,4,5,0,3,1,7,5,5,3,0");
+            Assert.Equal("2,4,1,2,7,5,4,5,0,3,1,7,5,5,3,0", result);
+        }
     }
 }
