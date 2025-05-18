@@ -236,6 +236,7 @@ namespace ProblemSolveConsole.AdventofCode
         }
         public class Computer2()
         {
+            //https://www.youtube.com/watch?v=y-UPxMAh2N8
             //3個假設
             //(1)最後只有和必定是3,0來讓loop達成
             //(2)必定有類似5,5來輸出結果
