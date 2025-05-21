@@ -18,7 +18,7 @@ namespace ProblemSolveConsole
             }
 
 
-            new _2024D18().Execute();
+            new _2024D19().Execute();
             Console.WriteLine("Hello, World!");
         }
     }
