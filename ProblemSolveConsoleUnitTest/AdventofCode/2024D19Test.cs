@@ -29,5 +29,20 @@ brgr
 bbrgwb");
             Assert.Equal(6, result);
         }
+        [Fact]
+        public void CountWaysTest()
+        {
+            var result = _2024D19.CountWays(@"r, wr, b, g, bwu, rb, gb, br
+
+brwrr
+bggr
+gbbr
+rrbgbr
+ubwu
+bwurrg
+brgr
+bbrgwb");
+            Assert.Equal(16, result);
+        }
     }
 }
