@@ -25,7 +25,7 @@ namespace ProblemSolveConsole.LeetCode
             int current = num;
             while (current != 0) 
             {
-                (int leadingValue, int digit, int value) leadingInfo = getLeadingValueAndDigitl(current);
+                (int leadingValue, int digit, int value) leadingInfo = GetLeadingInfo(current);
 
                 if(leadingInfo.leadingValue < 5)
                 {
@@ -64,26 +64,24 @@ namespace ProblemSolveConsole.LeetCode
             }
 
             return result;
+
         }
 
-        public (int leadingValue, int digit, int value) getLeadingValueAndDigitl(int input)
+        public (int leadingValue, int digit, int value) GetLeadingInfo(int num)
         {
-            int current = input;
-            decimal digit = 0.1m; //最後一定是 >= 1
-            int leadingValue = 0;
-
-            do
+            int digit = 1;
+            while (num >= 10)
             {
-                //確定有的
+                num /= 10;
                 digit *= 10;
-                leadingValue = current;
-                //執行後要確定的
-                current /= 10;
             }
-            while (current != 0);
-
-
-            return (leadingValue, (int)digit, leadingValue * (int)digit);
+            return (num, digit, num * digit);
         }
+
+        //Pattern Mapping 規則資料表轉換
+        //我還在dictionary...，人家用map已經直接達成O(1) => 把選項的排列組合全寫出來，畢竟位數就那幾個，要更加務實和符合需求且小範圍易擴展的解法
+        //https://leetcode.com/problems/integer-to-roman/solutions/6274/simple-solution/
+        //這種略差但補足了9和4程式也會比我的乾淨
+        //https://leetcode.com/problems/integer-to-roman/solutions/6310/my-java-solution-easy-to-understand/
     }
 }
