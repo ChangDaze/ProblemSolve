@@ -125,6 +125,10 @@ namespace ProblemSolveConsole.LeetCode
 
             return result;
 #endif
+            //https://leetcode.com/problems/3sum/solutions/3736346/java-easiest-solution-ever-by-abhiyadav0-l3rg/?page=3
+            //最簡單還是sort + 2 pointer
+            //https://leetcode.com/problems/3sum/solutions/725950/python-5-easy-steps-beats-974-annotated-0bej2/?page=3
+            //這個用列舉所有可能(1個0，2個0(同3個0)，3個0...) + set來解 => 算偏暴力吧，因為可能性爆炸就G了
         }
     }
 }

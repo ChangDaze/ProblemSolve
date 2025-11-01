@@ -22,6 +22,7 @@ namespace ProblemSolveConsole.LeetCode
             //基本照抄00153Sum
             //1.重複的不用檢查
             //2.用two pointer逼近最接近的數即可
+            //3.標準從0變target而已
             Array.Sort(nums);
             int result = int.MaxValue;
             int absDelta = Math.Abs(target - result);

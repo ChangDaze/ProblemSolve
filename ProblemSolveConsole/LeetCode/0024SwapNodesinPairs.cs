@@ -10,6 +10,9 @@ namespace ProblemSolveConsole.LeetCode
     {
         public ListNode SwapPairs(ListNode head)
         {
+            //time : O(n)
+            //space : O(1)
+
             //裝頭
             ListNode newHead = new ListNode(0, head);
 
@@ -28,6 +31,14 @@ namespace ProblemSolveConsole.LeetCode
             }
 
             return newHead.next;
+
+            //https://leetcode.com/problems/swap-nodes-in-pairs/solutions/11030/my-accepted-java-code-used-recursion-by-0ywuv/?page=3
+            //這位是將swap視作單獨操作
+            //nodelist : (1)(2)(3) ...
+            //前提 => 不能swap就返回原nodelist
+            //a 存下(2)
+            //b 將(1)的next接上下組((3)(4))的recusive swap
+            //c 將(2)接上(1)
         }
 
         public class ListNode
