@@ -124,5 +124,8 @@ namespace ProblemSolveConsole.LeetCode
 
         //https://leetcode.com/problems/valid-sudoku/solutions/15472/shortsimple-java-using-strings-by-stefan-rmwb/
         //結果自己encode每種有效情境+hashset最清晰...XD
+        //'4' in row 7 is encoded as "(4)7".
+        //'4' in column 7 is encoded as "7(4)".
+        //'4' in the top-right block is encoded as "0(4)2  top => row第0層 column第2層 用 i/3 j/3就能抓到
     }
 }
