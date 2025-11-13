@@ -14,6 +14,7 @@ namespace ProblemSolveConsole.LeetCode
             //轉180 270 360 都只是多做幾次
             //in place 用 int temp來幫忙 => 因為要inplace所以就不能用上面的方法
             //=> 改用 transpose + 垂直鏡射 =>如果是先垂直鏡射再transpose其實就是anticlock rotate
+            //=>基本上這題就是用觀察規律和歸納法來解
 
             //time : O(n)
             //space:O(1)
