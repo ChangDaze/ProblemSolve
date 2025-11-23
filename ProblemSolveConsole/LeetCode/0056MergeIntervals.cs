@@ -34,7 +34,7 @@ namespace ProblemSolveConsole.LeetCode
         //https://leetcode.com/problems/merge-intervals/solutions/21222/a-simple-java-solution-by-brubru777-83sh/
         //這個人解法很乾淨俐落，可以學學
         //1.int[][]應該也能用Array sort
-        //2.他的List<int[]> result不使用Insert()和RemoveAt()，是比較完後直接修改newInterval，如果不必修改了就換下個newInterval，因為物件特性，所以newInterval修改也會更新result中的上下限
+        //2.他的List<int[]> result可以不使用Insert()和RemoveAt()，是比較完後直接修改newInterval，如果不必修改了就換下個newInterval，因為物件特性，所以newInterval修改也會更新result中的上下限
         //3.最後把result(為了add用list)轉回array
         //https://leetcode.com/problems/merge-intervals/solutions/5513226/video-sorting-solution-by-niits-8ea5/
         //這個人方法跟第一位一樣
