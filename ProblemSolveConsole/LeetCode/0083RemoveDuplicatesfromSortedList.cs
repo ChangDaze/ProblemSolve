@@ -31,35 +31,37 @@ namespace ProblemSolveConsole.LeetCode
 
             return tempHead.next;
         }
-    }
 
-    public class ListNode
-    {
-        public int val;
-        public ListNode next;
-        public ListNode(int val = 0, ListNode next = null)
+        public class ListNode
         {
-            this.val = val;
-            this.next = next;
-        }
-
-        //要複寫才能用單元測試equal
-        public override bool Equals(object obj)
-        {
-            if (obj is not ListNode other) return false;
-
-            var l1 = this;
-            var l2 = other;
-
-            while (l1 != null && l2 != null)
+            public int val;
+            public ListNode next;
+            public ListNode(int val = 0, ListNode next = null)
             {
-                if (l1.val != l2.val) return false;
-                l1 = l1.next;
-                l2 = l2.next;
+                this.val = val;
+                this.next = next;
             }
-            return l1 == null && l2 == null;
+
+            //要複寫才能用單元測試equal
+            public override bool Equals(object obj)
+            {
+                if (obj is not ListNode other) return false;
+
+                var l1 = this;
+                var l2 = other;
+
+                while (l1 != null && l2 != null)
+                {
+                    if (l1.val != l2.val) return false;
+                    l1 = l1.next;
+                    l2 = l2.next;
+                }
+                return l1 == null && l2 == null;
+            }
         }
     }
+
+    
 
     //https://leetcode.com/problems/remove-duplicates-from-sorted-list/solutions/28625/3-line-java-recursive-solution-by-wen587-j8y8/
     //recursive版本，優點是行數會很少
