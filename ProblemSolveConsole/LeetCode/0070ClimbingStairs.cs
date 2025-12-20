@@ -11,7 +11,7 @@ namespace ProblemSolveConsole.LeetCode
 #if false //space O(n)
         public int ClimbStairs(int n)
         {
-            //  time : O(n)
+            //  time : O(n) => 嚴格算應該是是 O(kn)，因為每次k個相加
             //  space : O(n)
             if(n < 2) //在小於2時都只有一個可能
             {
@@ -31,6 +31,8 @@ namespace ProblemSolveConsole.LeetCode
 #endif
         public int ClimbStairs(int n)
         {
+            //  time : O(n) => 嚴格算應該是是 O(2kn)，因為每次k個相加 + 每次都有轉移，所以space優化還是有代價
+            //  space : O(n)
             if (n < 2) //在小於2時都只有一個可能
             {
                 return 1;
