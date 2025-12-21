@@ -10,6 +10,8 @@ namespace ProblemSolveConsole.LeetCode
     {
         public int[] GetConcatenation(int[] nums)
         {
+            //time:O(n)
+            //space:O(n)
             int len = nums.Length + nums.Length;
             int[] result = new int[len];
 
