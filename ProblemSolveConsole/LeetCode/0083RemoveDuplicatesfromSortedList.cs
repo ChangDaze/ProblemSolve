@@ -8,6 +8,7 @@ namespace ProblemSolveConsole.LeetCode
 {
     public class _0083RemoveDuplicatesfromSortedList
     {
+#if false //2025.12.14
         public ListNode DeleteDuplicates(ListNode head)
         {
             //Time complexity:O(n)
@@ -30,6 +31,31 @@ namespace ProblemSolveConsole.LeetCode
             }
 
             return tempHead.next;
+        }
+#endif
+
+        //2026.3.15
+        //Time complexity:O(n)
+        //Space complexity:O(1)
+        public ListNode DeleteDuplicates(ListNode head)
+        {
+            if (head == null) return head;
+            ListNode previousPointer = head;
+            ListNode pointer = previousPointer.next;
+
+            while (pointer != null)
+            {
+                if (pointer.val == previousPointer.val)
+                {
+                    previousPointer.next = pointer.next; //previousPointer不推進
+                }
+                else
+                {
+                    previousPointer = previousPointer.next; //previousPointer推進
+                }
+                pointer = pointer.next;
+            }
+            return head;
         }
 
         public class ListNode
